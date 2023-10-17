@@ -6,17 +6,18 @@
 
 # About
 
-AstroVision is a first-of-a-kind, large-scale dataset of real small body images from both legacy and ongoing deep space missions, which currently features 115,970 densely annotated, real images of sixteen small bodies from eight missions. AstroVision was developed to facilitate the study of computer vision and deep learning for autonomous navigation in the vicinity of a small body, with speicial emphasis on training and evaluation of deep learning-based keypoint detection and feature description methods.
+AstroVision is a first-of-a-kind, large-scale dataset of real small body images from both legacy and ongoing deep space missions, which currently features over 110,000 densely annotated, real images of sixteen small bodies from eight missions. AstroVision was developed to facilitate the study of computer vision and deep learning for autonomous navigation in the vicinity of a small body, with speicial emphasis on training and evaluation of deep learning-based keypoint detection and feature description methods.
 
 If you find our datasets useful for your research, please cite the [AstroVision paper](https://www.sciencedirect.com/science/article/pii/S0094576523000103):
 
 ```bibtex
-@article{driver2022astrovision,
+@article{driver2023astrovision,
   title={{AstroVision}: Towards Autonomous Feature Detection and Description for Missions to Small Bodies Using Deep Learning},
   author={Driver, Travis and Skinner, Katherine and Dor, Mehregan and Tsiotras, Panagiotis},
-  journal={Acta Astronautica, Special Issue on AI for Space},
-  year={2022},
-  note={In Press}
+  journal={Acta Astronautica: Special Issue on AI for Space},
+  year={2023},
+  volume={210},
+  pages={393--410}
 }
 ```
 
@@ -24,7 +25,9 @@ Please make sure to :star: star and :eye: watch the repository to show support a
 
 # Downloading the datasets
 
-The AstroVision datasets may be downloaded using the provided `download_astrovision.py` script. The train and test data may be downloaded using the `--train` and `--test` options, respectively:
+### **Note:** We will continue to release datasets and update this repository over the coming months. Available datasets can be found by checking the `lists/` directory or our 🤗 [Hugging Face page](https://huggingface.co/datasets/travisdriver/astrovision-data).
+
+The AstroVision datasets may be downloaded using the provided `download_astrovision.py` script or by downloading them directly from our 🤗 [Hugging Face page](https://huggingface.co/datasets/travisdriver/astrovision-data). The train and test data may be downloaded using the `--train` and `--test` options, respectively:
 
 ```bash
 python download_astrovision.py --train  # downloads training data to data/test
@@ -35,7 +38,7 @@ The `--segments` (`--clusters`) option will download _all available_ segments (c
 
 ```bash
 python download_astrovision.py --segments --dataset_name dawn_ceres --segment_name 2015293_c6_orbit125  # download specific segment
-python download_astrovision.py --clusters --dataset_name dawn_ceres --cluster_name 00000007  # download specific cluster
+python download_astrovision.py --clusters --dataset_name dawn_ceres --cluster_name 00000032  # download specific cluster
 ```
 
 Below we provide more detailed information about each dataset.
@@ -76,7 +79,7 @@ Following the popular [COLMAP data format](https://colmap.github.io/format.html)
   - `Image.qvec`: $\mathbf{q}_ {\mathcal{C}_ i\mathcal{B}}$, i.e., the relative orientation of the camera frame $\mathcal{C}_ i$ with respect to the body-fixed frame $\mathcal{B}$. The user may call `Image.qvec2rotmat()` to get the corresponding rotation matrix $R_ {\mathcal{C}_ i\mathcal{B}}$.
   - `Image.camera_id`: the identifer for the camera that was used to capture the image.
   - `Image.name`: the name of the corresponding file, e.g., `00000000.png`.
-  - `Image.xys`: contains all of the keypoints $\mathbf{p}^{(i)} _k$ in image $i$, stored as a ($N$, 2) array. In our case, the keypoints are the forward-projected model vertices.
+  - `Image.xys`: contains all of the keypoints $\mathbf{p}^{(i)}_ k$ in image $i$, stored as a ($N$, 2) array. In our case, the keypoints are the forward-projected model vertices.
   - `Image.point3D_ids`: stores the `point3D_id` for each keypoint in `Image.xys`, which can be used to fetch the corresponding `point3D` from the `points3D` dictionary.
 
 - `points3D.bin` enocdes a dictionary of `point3D_id` and [`Point3D`](third_party/colmap/scripts/python/read_write_model.py) pairs. `Point3D` objects are structured as follows:
@@ -87,7 +90,7 @@ Following the popular [COLMAP data format](https://colmap.github.io/format.html)
 
 These three data containers, along with the ground truth shape model, completely describe the scene.
 
-In addition to the scene geomtry, each image is annotated with a landmark map, a depth map, and a visibility mask.
+In addition to the scene geometry, each image is annotated with a landmark map, a depth map, and a visibility mask.
 
 <a href="https://imgur.com/DGUC0ef"><img src="https://i.imgur.com/DGUC0ef.png" title="source: imgur.com" /></a>
 
@@ -95,12 +98,12 @@ In addition to the scene geomtry, each image is annotated with a landmark map, a
 - The _depth map_ provides a dense representation of the imaged surface and is computed by backward-projecting rays at each pixel in the image and recording the depth of the intersection between the ray and a high-resolution (i.e., $\sim$ 3.2 million facets) shape model.
 - The _visbility mask_ provides an estimate of the non-occluded portions of the imaged surface.
 
-**Note:** Instead of the traditional $z$-depth parametrization used for depth maps, we use the _absolute depth_, similar to the inverse depth parameterization. Let $\mathbf{m}^{(i)}_ k = K^{-1} \underline{\mathbf{p}}^{(i)}_ k$, where $K$ is the calibration matrix. Then, the landmark $\mathbf{\ell}_ {k}$ corresponding to keypoint $\mathbf{p}^{(i)}_ {k}$ with depth $d^{\mathcal{C}_ i}_ k$ (from the depth map) can be computed via
+**Note:** Instead of the traditional $z$-depth parametrization used for depth maps, we use the _absolute depth_, similar to the inverse depth parameterization. Let $\mathbf{m}^{(i)}_ k = K^{-1} \underline{\mathbf{p}}^{(i)}_ k$, where $K$ is the calibration matrix. Then, the landmark $\mathbf{\ell}_ k$ corresponding to keypoint $\mathbf{p}^{(i)}_ {k}$ with depth $d^{\mathcal{C}_ i}_ k$ (from the depth map) can be computed via
 
 $$
 \begin{align}
-    \underline{\mathbf{\ell}}_{k}^\mathcal{B} = \Pi^{-1}\left(\mathbf{p}^{(i)}_k, d^{\mathcal{C}_i}_k, T_{\mathcal{C}_i\mathcal{B}}; K\right) &= T_{\mathcal{C}_i\mathcal{B}}^{-1} \begin{bmatrix} d^{\mathcal{C}_i}_k \mathbf{m}^{(i)}_k / \|\mathbf{m}^{(i)}_k\| \\ 1 \end{bmatrix} \\
-    &= \frac{d^{\mathcal{C}_i}_k}{\|\mathbf{m}^{(i)}_k\|} R_{\mathcal{BC_i}} \mathbf{m}^{(i)}_k + \mathbf{r}^\mathcal{B}_{\mathrm{C}_i\mathrm{B}}.
+    \underline{\mathbf{\ell}}_ {k}^\mathcal{B} = \Pi^{-1}\left(\mathbf{p}^{(i)}_ k, d^{\mathcal{C}_ i}_ k, T_{\mathcal{C}_ i\mathcal{B}}; K\right) &= T_ {\mathcal{C}_ i\mathcal{B}}^{-1} \begin{bmatrix} d^{\mathcal{C}_ i}_ k \mathbf{m}^{(i)}_ k / \|\mathbf{m}^{(i)}_ k\| \\ 1 \end{bmatrix} \\
+    &= \frac{d^{\mathcal{C}_ i}_ k}{\|\mathbf{m}^{(i)}_ k\|} R_ {\mathcal{BC_i}} \mathbf{m}^{(i)}_ k + \mathbf{r}^\mathcal{B}_ {\mathrm{C}_ i\mathrm{B}}.
 \end{align}
 $$
 
@@ -114,5 +117,5 @@ We will be releasing tools for manipulating (e.g., splitting and stitching) and 
 
 Below is a list of papers that have utilized the AstroVision datasets:
 
-- [Deep Monocular Hazard Detection for Safe Small Body Landing](https://arxiv.org/abs/2301.13254)
-- Efficient Feature Description for Small Body Relative Navigation using Binary Convolutional Neural Networks
+- [Deep Monocular Hazard Detection for Safe Small Body Landing](https://arxiv.org/abs/2301.13254). AIAA/AAS Space Flight Mechanics Meeting, 2023
+- [Efficient Feature Description for Small Body Relative Navigation using Binary Convolutional Neural Networks](https://arxiv.org/abs/2304.04985). AAS Guidance, Navigation, and Control (GN&C) Conference, 2023.

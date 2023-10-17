@@ -1,59 +1,29 @@
 {
-    "dawn_ceres": {
-        "00000007": "https://www.dropbox.com/s/9xjiqcs3rbhlcse/00000007.zip?dl=1",
-        "00000011": "https://www.dropbox.com/s/u4ti7davgu4i4l4/00000011.zip?dl=1",
-        "00000014": "https://www.dropbox.com/s/w916iubwlkzmtd1/00000014.zip?dl=1",
-        "00000022": "https://www.dropbox.com/s/9l2a9qlhwu5fqdr/00000022.zip?dl=1",
-        "00000030": "https://www.dropbox.com/s/cgh2djw6ajrcerq/00000030.zip?dl=1",
-        "00000032": "https://www.dropbox.com/s/599y6nj64aivabb/00000032.zip?dl=1",
-        "00000039": "https://www.dropbox.com/s/5qry41f2rdron0h/00000039.zip?dl=1"
-    },
-    "dawn_vesta": {
-        "00000007": "https://www.dropbox.com/s/vz3g3bhujggwat9/00000007.zip?dl=1",
-        "00000011": "https://www.dropbox.com/s/5irvwggbyq1x8it/00000011.zip?dl=1",
-        "00000014": "https://www.dropbox.com/s/q9x2xod88y3d1na/00000014.zip?dl=1",
-        "00000022": "https://www.dropbox.com/s/byxs0g32an60c8e/00000022.zip?dl=1",
-        "00000030": "https://www.dropbox.com/s/vavzhx7bukyq60k/00000030.zip?dl=1",
-        "00000032": "https://www.dropbox.com/s/wkni133robepx6o/00000032.zip?dl=1",
-        "00000039": "https://www.dropbox.com/s/r41cll0muulf16p/00000039.zip?dl=1"
-    },
-    "orex_bennu": {
-        "00000007": "https://www.dropbox.com/s/snphvgc0ert47br/00000007.zip?dl=1",
-        "00000011": "https://www.dropbox.com/s/806wfkk0adbzr2m/00000011.zip?dl=1",
-        "00000014": "https://www.dropbox.com/s/dg6woga9vovt3rf/00000014.zip?dl=1",
-        "00000022": "https://www.dropbox.com/s/zaiwdzfzzdw1tse/00000022.zip?dl=1",
-        "00000030": "https://www.dropbox.com/s/7nzaacvetqplk9y/00000030.zip?dl=1",
-        "00000032": "https://www.dropbox.com/s/7dd3ez35lmx8fxp/00000032.zip?dl=1",
-        "00000039": "https://www.dropbox.com/s/bfm9nnu2fm2qjf3/00000039.zip?dl=1"
-    },
-    "rosetta_67p": {
-        "00000007": "https://www.dropbox.com/s/01v4k8ymwid8m6n/00000007.zip?dl=1",
-        "00000011": "https://www.dropbox.com/s/6nq0i45kc5wpgg4/00000011.zip?dl=1",
-        "00000014": "https://www.dropbox.com/s/ue1bo9gdg48yqc0/00000014.zip?dl=1",
-        "00000022": "https://www.dropbox.com/s/p2arpzk2s2dhmri/00000022.zip?dl=1",
-        "00000030": "https://www.dropbox.com/s/y4jok8kxc6vrxfc/00000030.zip?dl=1",
-        "00000032": "https://www.dropbox.com/s/ntmd406rc2vq30h/00000032.zip?dl=1",
-        "00000039": "https://www.dropbox.com/s/xxy6vg09or6acsx/00000039.zip?dl=1"
-    },
-    "rosiris_67p": {
-        "00000007": "https://www.dropbox.com/s/q2klukc81vdjpkb/00000007.zip?dl=1",
-        "00000011": "https://www.dropbox.com/s/lkodpk9t5o0oecc/00000011.zip?dl=1",
-        "00000014": "https://www.dropbox.com/s/hlqhetgonuo6zx2/00000014.zip?dl=1",
-        "00000022": "https://www.dropbox.com/s/77ea0g9ao33041s/00000022.zip?dl=1",
-        "00000030": "https://www.dropbox.com/s/qn0fl12eeo5606y/00000030.zip?dl=1",
-        "00000032": "https://www.dropbox.com/s/2si3odkgqixkscx/00000032.zip?dl=1",
-        "00000039": "https://www.dropbox.com/s/sgqf9cvaeikgdxf/00000039.zip?dl=1"
-    },
-    "haya_itokawa": {
-        "20050909_20051119": "https://www.dropbox.com/s/doytmykv8xn0wl1/20050909_20051119.zip?dl=1"
-    },
-    "cas_epim": {
-        "opus": "https://www.dropbox.com/s/hnnd8415l0ylzdq/opus.zip?dl=1"
-    },
-    "cas_mimas": {
-        "sbmt": "https://www.dropbox.com/s/k03yvbuh5serash/sbmt.zip?dl=1"
-    },
-    "rosetta_lutetia": {
-        "sbmt": "https://www.dropbox.com/s/anzghvcfw9dy2oh/sbmt.zip?dl=1"
-    }
+    "clusters/test/dawn_ceres": [
+        "00000032"
+    ],
+    "clusters/test/dawn_vesta": [
+        "00000032"
+    ],
+    "clusters/test/orex_bennu": [
+        "00000032"
+    ],
+    "clusters/test/rosetta_67p": [
+        "00000032"
+    ],
+    "clusters/test/rosiris_67p": [
+        "00000032"
+    ],
+    "segments/haya_itokawa": [
+        "20050909_20051119"
+    ],
+    "segments/cas_epim": [
+        "opus"
+    ],
+    "segments/cas_mimas": [
+        "sbmt"
+    ],
+    "segments/rosetta_lutetia": [
+        "sbmt"
+    ]
 }

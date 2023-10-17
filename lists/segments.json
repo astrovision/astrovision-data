@@ -1,32 +1,32 @@
 {
-    "dawn_ceres": {
-        "2015230_c1_orbit044": "https://www.dropbox.com/s/73u5uj0ewm684kf/2015230_c1_orbit044.zip?dl=1",
-        "2015293_c6_orbit125": "https://www.dropbox.com/s/i26m8y8zxw93yh3/2015293_c6_orbit125.zip?dl=1"
-    },
-    "dawn_vesta": {},
-    "orex_bennu": {},
-    "rosetta_67p": {},
-    "rosiris_67p": {},
-    "near_eros": {},
-    "haya_itokawa": {
-        "20050909_20051119": "https://www.dropbox.com/s/doytmykv8xn0wl1/20050909_20051119.zip?dl=1"
-    },
-    "cas_mimas": {
-        "sbmt": "https://www.dropbox.com/s/k03yvbuh5serash/sbmt.zip?dl=1"
-    },
-    "cas_tethys": {},
-    "cas_dione": {
-        "opus": "https://www.dropbox.com/s/qtdbzakhq4458xx/opus.zip?dl=1"
-    },
-    "cas_rhea": {},
-    "cas_janus": {},
-    "cas_phoebe": {},
-    "cas_epim": {
-        "opus": "https://www.dropbox.com/s/hnnd8415l0ylzdq/opus.zip?dl=1"
-    },
-    "mexp_phobos": {},
-    "rosetta_lutetia": {
-        "sbmt": "https://www.dropbox.com/s/anzghvcfw9dy2oh/sbmt.zip?dl=1"
-    },
-    "haya2_ryugu": {}
+    "dawn_ceres": [
+        "2015293_c6_orbit125"
+    ],
+    "dawn_vesta": [
+        "2011205_rc3",
+        "2011205_rc3b"
+    ],
+    "orex_bennu": [],
+    "rosetta_67p": [],
+    "rosiris_67p": [],
+    "near_eros": [],
+    "haya_itokawa": [
+        "20050909_20051119"
+    ],
+    "cas_mimas": [
+        "sbmt"
+    ],
+    "cas_tethys": [],
+    "cas_dione": [],
+    "cas_rhea": [],
+    "cas_janus": [],
+    "cas_phoebe": [],
+    "cas_epim": [
+        "opus"
+    ],
+    "mexp_phobos": [],
+    "rosetta_lutetia": [
+        "sbmt"
+    ],
+    "haya2_ryugu": []
 }

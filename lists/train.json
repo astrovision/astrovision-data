@@ -1,15 +1,17 @@
 {
-    "dawn_ceres": {},
-    "dawn_vesta": {},
-    "orex_bennu": {},
-    "rosetta_67p": {},
-    "rosiris_67p": {},
-    "near_eros": {},
-    "cas_tethys": {},
-    "cas_dione": {},
-    "cas_rhea": {},
-    "cas_janus": {},
-    "cas_phoebe": {},
-    "mexp_phobos": {},
-    "haya2_ryugu": {}
+    "clusters/train/dawn_ceres": [],
+    "clusters/train/dawn_vesta": [
+        "00000000"
+    ],
+    "clusters/train/orex_bennu": [],
+    "clusters/train/rosetta_67p": [],
+    "clusters/train/rosiris_67p": [],
+    "clusters/train/near_eros": [],
+    "segments/cas_tethys": [],
+    "segments/cas_dione": [],
+    "segments/cas_rhea": [],
+    "segments/cas_janus": [],
+    "segments/cas_phoebe": [],
+    "segments/mexp_phobos": [],
+    "segments/haya2_ryugu": []
 }
