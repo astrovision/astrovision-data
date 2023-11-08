@@ -75,8 +75,8 @@ Following the popular [COLMAP data format](https://colmap.github.io/format.html)
 
 - `images.bin` encodes a dictionary of `image_id` and [`Image`](third_party/colmap/scripts/python/read_write_model.py) pairs. `Image` objects are structured as follows:
   - `Image.id`: defines the unique (and possibly noncontiguious) identifier for the `Image`.
-  - `Image.tvec`: $\mathbf{r}^\mathcal{C_i}_ {\mathrm{BC}_i}$, i.e., the relative position of the origin of the camera frame $\mathcal{C}_ i$ with respect to the origin of the body-fixed frame $\mathcal{B}$ expressed in the $\mathcal{C}_ i$ frame.
-  - `Image.qvec`: $\mathbf{q}_{\mathcal{C}_ i\mathcal{B}}$, i.e., the relative orientation of the camera frame $\mathcal{C}_i$ with respect to the body-fixed frame $\mathcal{B}$. The user may call `Image.qvec2rotmat()` to get the corresponding rotation matrix $R_ {\mathcal{C}_ i\mathcal{B}}$.
+  - `Image.tvec`: $\mathbf{r}^\mathcal{C_ i}_ {\mathrm{BC}_ i}$, i.e., the relative position of the origin of the camera frame $\mathcal{C}_ i$ with respect to the origin of the body-fixed frame $\mathcal{B}$ expressed in the $\mathcal{C}_ i$ frame.
+  - `Image.qvec`: $\mathbf{q}_ {\mathcal{C}_ i\mathcal{B}}$, i.e., the relative orientation of the camera frame $\mathcal{C}_ i$ with respect to the body-fixed frame $\mathcal{B}$. The user may call `Image.qvec2rotmat()` to get the corresponding rotation matrix $R_ {\mathcal{C}_ i\mathcal{B}}$.
   - `Image.camera_id`: the identifer for the camera that was used to capture the image.
   - `Image.name`: the name of the corresponding file, e.g., `00000000.png`.
   - `Image.xys`: contains all of the keypoints $\mathbf{p}^{(i)}_ k$ in image $i$, stored as a ($N$, 2) array. In our case, the keypoints are the forward-projected model vertices.
@@ -98,12 +98,12 @@ In addition to the scene geometry, each image is annotated with a landmark map, 
 - The _depth map_ provides a dense representation of the imaged surface and is computed by backward-projecting rays at each pixel in the image and recording the depth of the intersection between the ray and a high-resolution (i.e., $\sim$ 3.2 million facets) shape model.
 - The _visbility mask_ provides an estimate of the non-occluded portions of the imaged surface.
 
-**Note:** Instead of the traditional $z$-depth parametrization used for depth maps, we use the _absolute depth_, similar to the inverse depth parameterization. Let $\mathbf{m}^{(i)}_k = K^{-1} \underline{\mathbf{p}}^{(i)}_ k$, where $K$ is the calibration matrix. Then, the landmark $\mathbf{\ell}_k$ corresponding to keypoint $\mathbf{p}^{(i)}_ {k}$ with depth $d^{\mathcal{C}_i}_ k$ (from the depth map) can be computed via
+**Note:** Instead of the traditional $z$-depth parametrization used for depth maps, we use the _absolute depth_, similar to the inverse depth parameterization. Let $\mathbf{m}^{(i)}_ k = K^{-1} \underline{\mathbf{p}}^{(i)}_ k$, where $K$ is the calibration matrix. Then, the landmark $\mathbf{\ell}_ k$ corresponding to keypoint $\mathbf{p}^{(i)}_ {k}$ with depth $d^{\mathcal{C}_ i}_ k$ (from the depth map) can be computed via
 
 $$
 \begin{align}
-    \underline{\mathbf{\ell}}_ {k}^\mathcal{B} = \Pi^{-1}\left(\mathbf{p}^{(i)}_ k, d^{\mathcal{C}_ i}_ k, T_{\mathcal{C}_ i\mathcal{B}}; K\right) &= T_ {\mathcal{C}_ i\mathcal{B}}^{-1} \begin{bmatrix} d^{\mathcal{C}_ i}_ k \mathbf{m}^{(i)}_ k / \|\mathbf{m}^{(i)}_ k\| \\ 1 \end{bmatrix} \\
-    &= \frac{d^{\mathcal{C}_ i}_ k}{\|\mathbf{m}^{(i)}_ k\|} R_ {\mathcal{BC_i}} \mathbf{m}^{(i)}_ k + \mathbf{r}^\mathcal{B}_ {\mathrm{C}_ i\mathrm{B}}.
+    \underline{\mathbf{\ell}}_ {k}^\mathcal{B} = \Pi^{-1}\left(\mathbf{p}^{(i)}_ k, d^{\mathcal{C}_ i}_ k, T_ {\mathcal{C}_ i\mathcal{B}}; K\right) &= T_ {\mathcal{C}_ i\mathcal{B}}^{-1} \begin{bmatrix} d^{\mathcal{C}_ i}_ k \mathbf{m}^{(i)}_ k / \|\mathbf{m}^{(i)}_ k\| \\ 1 \end{bmatrix} \\
+    &= \frac{d^{\mathcal{C}_ i}_ k}{\|\mathbf{m}^{(i)}_ k\|} R_ {\mathcal{BC_i}} \mathbf{m}^{(i)} _k + \mathbf{r}^\mathcal{B} _{\mathrm{C} _i\mathrm{B}}.
 \end{align}
 $$
 
