@@ -25,7 +25,7 @@ Please make sure to :star: star and :eye: watch the repository to show support a
 
 # Downloading the datasets
 
-### **Note:** We will continue to release datasets and update this repository over the coming months. Available datasets can be found by checking the `lists/` directory or our 🤗 [Hugging Face page](https://huggingface.co/datasets/travisdriver/astrovision-data).
+### **Note:** We will continue to release datasets and update this repository over the coming months. Available datasets can be found by checking the `lists/` directory or our 🤗 [Hugging Face page](https://huggingface.co/datasets/travisdriver/astrovision-data)
 
 The AstroVision datasets may be downloaded using the provided `download_astrovision.py` script or by downloading them directly from our 🤗 [Hugging Face page](https://huggingface.co/datasets/travisdriver/astrovision-data). The train and test data may be downloaded using the `--train` and `--test` options, respectively:
 
@@ -43,25 +43,25 @@ python download_astrovision.py --clusters --dataset_name dawn_ceres --cluster_na
 
 Below we provide more detailed information about each dataset.
 
-| Mission      | Target                    | Launch (yyyy/mm/dd) | # Images | Disk (GB)  |
-|:------------:|:-------------------------:|:-------------------:|:--------:|:-------:|
-| NEAR         | 433 Eros                  | 1996/02/17          |    12827 |    13.1 |
-| Cassini      | Mimas (Saturn I)          | 1997/10/15          |      307 |     3.0 |
-|              | Tethys (Saturn III)       |                     |      751 |     9.2 |
-|              | Dione (Saturn IV)         |                     |     1381 |    12.0 |
-|              | Rhea (Saturn V)           |                     |      665 |     5.1 |
-|              | Phoebe (Saturn IX)        |                     |       96 |     0.8 |
-|              | Janus (Saturn X)          |                     |      184 |     2.0 |
-|              | Epimetheus (Saturn XI)    |                     |      133 |     1.3 |
-| Hayabusa     | 25143 Itokawa             | 2003/05/09          |      560 |     5.4 |
-| Mars Express | Phobos (Mars I)           | 2003/06/02          |      890 |     4.1 |
-| Rosetta      | 67P/Churyumov–Gerasimenko | 2004/03/02          |    26314 |   190.0 |
-|              | 21 Lutetia                |                     |       40 |     2.1 |
-| Dawn         | 1 Ceres                   | 2007/09/27          |    38540 |   204.8 |
-|              | 4 Vesta                   |                     |    17504 |    93.3 |
-| Hayabusa2    | 162173 Ryugu              | 2014/12/03          |      640 |     6.0 |
-| OSIRIS-REx   | 101955 Bennu              | 2016/09/08          |    16618 |   106.5 |
-| TOTAL        |                           |                     |   117493 |   658.7 |
+| Mission      | Target                    | Launch (yyyy/mm/dd) | # Images | Disk (GB)  | Clusters | Segments |
+|:------------:|:-------------------------:|:-------------------:|:--------:|:-------:|:--------:|:-------:|
+| NEAR         | 433 Eros                  | 1996/02/17          |    12827 |    13.1 | Coming soon... | Coming soon... |
+| Cassini      | Mimas (Saturn I)          | 1997/10/15          |      307 |     3.0 | N/A | [cas_mimas](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/cas_mimas) |
+|              | Tethys (Saturn III)       |                     |      751 |     9.2 | N/A | Coming soon... |
+|              | Dione (Saturn IV)         |                     |     1381 |    12.0 | N/A | Coming soon... |
+|              | Rhea (Saturn V)           |                     |      665 |     5.1 | N/A | Coming soon... |
+|              | Phoebe (Saturn IX)        |                     |       96 |     0.8 | N/A | Coming soon... |
+|              | Janus (Saturn X)          |                     |      184 |     2.0 | N/A | Coming soon... |
+|              | Epimetheus (Saturn XI)    |                     |      133 |     1.3 | N/A | [cas_epim](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/cas_epim) |
+| Hayabusa     | 25143 Itokawa             | 2003/05/09          |      560 |     5.4 | N/A | [haya_itokawa](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/haya_itokawa) |
+| Mars Express | Phobos (Mars I)           | 2003/06/02          |      890 |     4.1 | N/A | Coming soon... |
+| Rosetta      | 67P/Churyumov–Gerasimenko | 2004/03/02          |    26314 |   190.0 | Coming soon... | Coming soon... |
+|              | 21 Lutetia                |                     |       40 |     2.1 | N/A | [rosetta_lutetia](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/rosetta_lutetia) |
+| Dawn         | 1 Ceres                   | 2007/09/27          |    38540 |   204.8 | Coming Soon... | Coming soon... |
+|              | 4 Vesta                   |                     |    17504 |    93.3 | Coming soon... | Coming soon... |
+| Hayabusa2    | 162173 Ryugu              | 2014/12/03          |      640 |     6.0 | N/A | Coming soon... |
+| OSIRIS-REx   | 101955 Bennu              | 2016/09/08          |    16618 |   106.5 | [train](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/clusters/train/orex_bennu) / [test](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/clusters/test/orex_bennu) | Coming soon... |
+| TOTAL        |                           |                     |   117493 |   658.7 |     |                |
 
 # Data format
 
@@ -75,8 +75,8 @@ Following the popular [COLMAP data format](https://colmap.github.io/format.html)
 
 - `images.bin` encodes a dictionary of `image_id` and [`Image`](third_party/colmap/scripts/python/read_write_model.py) pairs. `Image` objects are structured as follows:
   - `Image.id`: defines the unique (and possibly noncontiguious) identifier for the `Image`.
-  - `Image.tvec`: $\mathbf{r}^\mathcal{C_ i}_ {\mathrm{BC}_ i}$, i.e., the relative position of the origin of the camera frame $\mathcal{C}_ i$ with respect to the origin of the body-fixed frame $\mathcal{B}$ expressed in the $\mathcal{C}_ i$ frame.
-  - `Image.qvec`: $\mathbf{q}_ {\mathcal{C}_ i\mathcal{B}}$, i.e., the relative orientation of the camera frame $\mathcal{C}_ i$ with respect to the body-fixed frame $\mathcal{B}$. The user may call `Image.qvec2rotmat()` to get the corresponding rotation matrix $R_ {\mathcal{C}_ i\mathcal{B}}$.
+  - `Image.tvec`: $\mathbf{r}^\mathcal{C_i}_ {\mathrm{BC}_i}$, i.e., the relative position of the origin of the camera frame $\mathcal{C}_ i$ with respect to the origin of the body-fixed frame $\mathcal{B}$ expressed in the $\mathcal{C}_ i$ frame.
+  - `Image.qvec`: $\mathbf{q}_{\mathcal{C}_ i\mathcal{B}}$, i.e., the relative orientation of the camera frame $\mathcal{C}_i$ with respect to the body-fixed frame $\mathcal{B}$. The user may call `Image.qvec2rotmat()` to get the corresponding rotation matrix $R_ {\mathcal{C}_ i\mathcal{B}}$.
   - `Image.camera_id`: the identifer for the camera that was used to capture the image.
   - `Image.name`: the name of the corresponding file, e.g., `00000000.png`.
   - `Image.xys`: contains all of the keypoints $\mathbf{p}^{(i)}_ k$ in image $i$, stored as a ($N$, 2) array. In our case, the keypoints are the forward-projected model vertices.
@@ -98,7 +98,7 @@ In addition to the scene geometry, each image is annotated with a landmark map, 
 - The _depth map_ provides a dense representation of the imaged surface and is computed by backward-projecting rays at each pixel in the image and recording the depth of the intersection between the ray and a high-resolution (i.e., $\sim$ 3.2 million facets) shape model.
 - The _visbility mask_ provides an estimate of the non-occluded portions of the imaged surface.
 
-**Note:** Instead of the traditional $z$-depth parametrization used for depth maps, we use the _absolute depth_, similar to the inverse depth parameterization. Let $\mathbf{m}^{(i)}_ k = K^{-1} \underline{\mathbf{p}}^{(i)}_ k$, where $K$ is the calibration matrix. Then, the landmark $\mathbf{\ell}_ k$ corresponding to keypoint $\mathbf{p}^{(i)}_ {k}$ with depth $d^{\mathcal{C}_ i}_ k$ (from the depth map) can be computed via
+**Note:** Instead of the traditional $z$-depth parametrization used for depth maps, we use the _absolute depth_, similar to the inverse depth parameterization. Let $\mathbf{m}^{(i)}_k = K^{-1} \underline{\mathbf{p}}^{(i)}_ k$, where $K$ is the calibration matrix. Then, the landmark $\mathbf{\ell}_k$ corresponding to keypoint $\mathbf{p}^{(i)}_ {k}$ with depth $d^{\mathcal{C}_i}_ k$ (from the depth map) can be computed via
 
 $$
 \begin{align}
