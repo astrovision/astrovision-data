@@ -47,18 +47,18 @@ Below we provide more detailed information about each dataset.
 |:------------:|:-------------------------:|:-------------------:|:--------:|:-------:|:--------:|:-------:|
 | NEAR         | 433 Eros                  | 1996/02/17          |    12827 |    13.1 | Coming soon... | Coming soon... |
 | Cassini      | Mimas (Saturn I)          | 1997/10/15          |      307 |     3.0 | N/A | [cas_mimas](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/cas_mimas) |
-|              | Tethys (Saturn III)       |                     |      751 |     9.2 | N/A | Coming soon... |
-|              | Dione (Saturn IV)         |                     |     1381 |    12.0 | N/A | Coming soon... |
-|              | Rhea (Saturn V)           |                     |      665 |     5.1 | N/A | Coming soon... |
-|              | Phoebe (Saturn IX)        |                     |       96 |     0.8 | N/A | Coming soon... |
-|              | Janus (Saturn X)          |                     |      184 |     2.0 | N/A | Coming soon... |
+|              | Tethys (Saturn III)       |                     |      751 |     9.2 | N/A | [cas_tethys](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/cas_tethys) |
+|              | Dione (Saturn IV)         |                     |     1381 |    12.0 | N/A | [cas_dione](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/cas_dione) |
+|              | Rhea (Saturn V)           |                     |      665 |     5.1 | N/A | [cas_rhea](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/cas_rhea) |
+|              | Phoebe (Saturn IX)        |                     |       96 |     0.8 | N/A | [cas_phoebe](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/cas_phoebe) |
+|              | Janus (Saturn X)          |                     |      184 |     2.0 | N/A | [cas_janus](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/cas_janus) |
 |              | Epimetheus (Saturn XI)    |                     |      133 |     1.3 | N/A | [cas_epim](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/cas_epim) |
 | Hayabusa     | 25143 Itokawa             | 2003/05/09          |      560 |     5.4 | N/A | [haya_itokawa](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/haya_itokawa) |
 | Mars Express | Phobos (Mars I)           | 2003/06/02          |      890 |     4.1 | N/A | Coming soon... |
 | Rosetta      | 67P/Churyumov–Gerasimenko | 2004/03/02          |    26314 |   190.0 | Coming soon... | Coming soon... |
 |              | 21 Lutetia                |                     |       40 |     2.1 | N/A | [rosetta_lutetia](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/segments/rosetta_lutetia) |
 | Dawn         | 1 Ceres                   | 2007/09/27          |    38540 |   204.8 | Coming Soon... | Coming soon... |
-|              | 4 Vesta                   |                     |    17504 |    93.3 | Coming soon... | Coming soon... |
+|              | 4 Vesta                   |                     |    17504 |    93.3 | [train](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/clusters/train/dawn_vesta) / [test](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/clusters/test/dawn_vesta) | Coming soon... |
 | Hayabusa2    | 162173 Ryugu              | 2014/12/03          |      640 |     6.0 | N/A | Coming soon... |
 | OSIRIS-REx   | 101955 Bennu              | 2016/09/08          |    16618 |   106.5 | [train](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/clusters/train/orex_bennu) / [test](https://huggingface.co/datasets/travisdriver/astrovision-data/tree/main/clusters/test/orex_bennu) | Coming soon... |
 | TOTAL        |                           |                     |   117493 |   658.7 |     |                |
